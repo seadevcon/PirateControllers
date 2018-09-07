@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="libs/openlayers/ol.css" type="text/css" />
+    <script type="text/javascript" src="libs/openlayers/ol.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="js/blacklistShips.js"></script>
+    <script type="text/javascript" src="js/logic.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            doWork();
+        });
+
+    </script>
+</head>
+<body>
+
+    <!-- Map -->
+    <div id="divMapSection">
+        <div id="map-container" class="map" style="height: 400px; width: 100%; background-color: red;">
+        </div>
+    </div>
+</body>
+</html>
