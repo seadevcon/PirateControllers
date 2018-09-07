@@ -2871,8 +2871,8 @@ lxs.gis.openlayers.VectorLayer = function (id, sourceType, definitionLayer) {
     lxs.gis.openlayers.Layer.call(this, id);
 
     // Set default colors
-    this.__fillColor = "#ff00ff";
-    this.__strokeColor = "#880000";
+    this.__fillColor = "#ff0000";
+    this.__strokeColor = "#8801100";
 
     // Create layer    
     this._olLayer = this._createLayer(sourceType, definitionLayer);
@@ -3237,10 +3237,16 @@ lxs.gis.openlayers.Feature.prototype.show = function () {
 lxs.gis.openlayers.Feature.prototype.setStrokeColor = function (color) {
     lxs.gis.openlayers.__setStrokeColor(this.__olFeature, color);
 }
+lxs.gis.openlayers.Feature.prototype.setStrokeColor2 = function (ftr, color) {
+    lxs.gis.openlayers.__setStrokeColor(ftr.__olFeature, color);
+}
 
 // Set fill color to the feature
 lxs.gis.openlayers.Feature.prototype.setFillColor = function (color) {
     lxs.gis.openlayers.__setFillColor(this.__olFeature, color);
+}
+lxs.gis.openlayers.Feature.prototype.setFillColor2 = function (ftr, color) {
+    lxs.gis.openlayers.__setFillColor(ftr.__olFeature, color);
 }
 
 // Set text to the feature
