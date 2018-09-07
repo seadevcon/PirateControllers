@@ -1,7 +1,10 @@
-import urllib2
+from urllib.request import urlopen
+import requests
 import json
 
-response = urllib2.urlopen("192.168.42.102")
+print("starting")
+
+response = requests.get("192.168.42.102")
 page_source = response.read()
 
 all_vessel = []
