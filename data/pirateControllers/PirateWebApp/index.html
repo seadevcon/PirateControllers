@@ -10,12 +10,17 @@
     <!-- Bootstrap -->
     <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="libs/lxs-core-js.js"></script>
 
     <script type="text/javascript" src="js/blacklistShips.js"></script>
     <script type="text/javascript" src="js/logic.js"></script>
+    <script type="text/javascript" src="js/response.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             doWork();
+            doFindships();
+            findships();
         });
 
     </script>
@@ -24,7 +29,7 @@
 
     <!-- Map -->
     <div id="divMapSection">
-        <div id="map-container" class="map" style="height: 400px; width: 100%; background-color: red;">
+        <div id="map-container" class="map" style="height: 400px; width: 100%">
         </div>
     </div>
 </body>
