@@ -1,7 +1,7 @@
 import urllib2
 import json
 
-response = urllib2.urlopen("192:168:42:102")
+response = urllib2.urlopen("192.168.42.102")
 page_source = response.read()
 
 all_vessel = []
@@ -17,3 +17,4 @@ json_data = json.dumps(data)
 file_handle = open("data.json", "w")
 file_handle.write(json_data)
 
+print("done")
