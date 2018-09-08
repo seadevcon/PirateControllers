@@ -22,10 +22,13 @@ function doWork() {
     // Add service shape to map
     serviceShape = new lxs.gis.openlayers.VectorLayer(SERVICE_SHAPE_LAYER, lxs.gis.openlayers.Layer.SOURCE_TYPES.EMPTY);
     serviceShape.__fillColor = '#FF0000';
-    serviceShape.__strokeColor = '#00DDaa'
+    serviceShape.__strokeColor = '#00DDaa';
+    //serviceShape.setAction(lxs.dom.Events.CLICK, callback);
+    //serviceShape.setTooltip("setTooltip");
 
 
     map.addLayer(serviceShape);
+
 
     // Set initial extent
     map.center([0, 0]);
@@ -35,7 +38,9 @@ function doWork() {
     var requestShipsUrl = "http://ais.spire.com/messages";
     var parameters = { 'fields': 'decoded', 'mmsi':'312864000,627179000'}
 
-    var callback = function (response) {}
+    var callback = function (response) {
+        alert();
+    };
 
     var error = function (error) {}
 
@@ -67,6 +72,7 @@ function sendAjaxRequest(url, method, parameters, callback, error) {
 }
 
 
+
 function findships() {
     window.setTimeout(doFindships, 30000);
 }
@@ -85,11 +91,10 @@ function doFindships() {
         ftr = lxs.gis.openlayers.Feature.createPoint(coordinates);
 
         if (responseShips[i].evil) {
-            ftr.setText('' + responseShips[i].mmsi);
-        } else {
             ftr.setText2('' + responseShips[i].mmsi);
+        } else {
+            ftr.setText('' + responseShips[i].mmsi);
         }
-        
         serviceShape.addFeature(ftr);
     }
     
