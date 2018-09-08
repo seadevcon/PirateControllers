@@ -9,6 +9,7 @@ response = urlopen("http://192.168.42.102")
 page_source = response.read().decode("utf-8", "ignore")
 
 all_vessel = []
+known_vessels = dict()
 
 for vessel in page_source.split(";"):
 	arr = vessel.split(",")
@@ -18,7 +19,9 @@ for vessel in page_source.split(";"):
 	lat = float(arr[1])
 	lon = float(arr[2])
 	evil = arr[3] == "True"
-	all_vessel.append({"mmsi": mmsi, "latitude": lat, "longitude": lon, "evil": evil})
+	known_vessels[mmsi] = {"mmsi": mmsi, "latitude": lat, "longitude": lon, "evil": evil}
+
+all_vessel = [ v for k, v in known_vessels.items()]
 
 # format to var responseShips = [{"mmsi": mmsi, "latitude": lat, "longitude": lon}]
 json_data = "var responseShips = " + json.dumps(all_vessel)
