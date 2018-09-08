@@ -17,7 +17,8 @@ for vessel in page_source.split(";"):
 	mmsi = int(arr[0])
 	lat = float(arr[1])
 	lon = float(arr[2])
-	all_vessel.append({"mmsi": mmsi, "latitude": lat, "longitude": lon})
+	evil = arr[3] == "True"
+	all_vessel.append({"mmsi": mmsi, "latitude": lat, "longitude": lon, "evil": evil})
 
 # format to var responseShips = [{"mmsi": mmsi, "latitude": lat, "longitude": lon}]
 json_data = "var responseShips = " + json.dumps(all_vessel)
