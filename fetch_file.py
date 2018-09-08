@@ -1,11 +1,13 @@
+# accesses the results of reader.py
+
 from urllib.request import urlopen
 import json
 
-
+# http get request to IP address of pi
 response = urlopen("http://192.168.42.102")
+# care about the decoding
 page_source = response.read().decode("utf-8", "ignore")
 
-print(page_source)
 all_vessel = []
 
 for vessel in page_source.split(";"):
@@ -17,6 +19,7 @@ for vessel in page_source.split(";"):
 	lon = float(arr[2])
 	all_vessel.append({"mmsi": mmsi, "latitude": lat, "longitude": lon})
 
+# format to var responseShips = [{"mmsi": mmsi, "latitude": lat, "longitude": lon}]
 json_data = "var responseShips = " + json.dumps(all_vessel)
 
 file_handle = open("data.js", "w")

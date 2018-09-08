@@ -1,3 +1,6 @@
+# this runs on the pi
+# fetches the ais receiver data and supplies a file with the decrypted results
+
 import serial
 from time import time,sleep
 
@@ -41,7 +44,7 @@ def clear():
         print "Done\n"
         filehandle.write("")
 
-# serial port config
+# serial port config (common for ais receivers)
 # please refer to
 #http://www.varesano.net/blog/fabio/serial%20rs232%20connections%20python
 ser = serial.Serial(
