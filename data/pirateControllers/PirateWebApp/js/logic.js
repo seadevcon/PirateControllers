@@ -83,6 +83,13 @@ function doFindships() {
     {
         coordinates = ol.proj.transform([responseShips[i].longitude, responseShips[i].latitude], 'EPSG:4326', 'EPSG:3857');
         ftr = lxs.gis.openlayers.Feature.createPoint(coordinates);
+
+        if (responseShips[i].evil) {
+            ftr.setText('' + responseShips[i].mmsi);
+        } else {
+            ftr.setText2('' + responseShips[i].mmsi);
+        }
+        
         serviceShape.addFeature(ftr);
     }
     
