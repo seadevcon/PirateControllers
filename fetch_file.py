@@ -9,6 +9,7 @@ old = time()
 interval = 30
 while True:
 	if time() > old + interval:
+		print("updating\n")
 		old = time()
 		
 		# http get request to IP address of pi
@@ -37,5 +38,5 @@ while True:
 		file_handle = open("data.js", "w")
 		file_handle.write(json_data)
 		file_handle.close()
-		
+
 	sleep(0.5)
