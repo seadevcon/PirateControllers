@@ -3259,7 +3259,7 @@ lxs.gis.openlayers.Feature.prototype.setText = function (text) {
                 color: "#760de0"
             }),
             fill: new ol.style.Fill({
-                color: "#fffc82"
+                color: "#7CFC00"
             })
         }),
         text: new ol.style.Text({
@@ -3267,7 +3267,7 @@ lxs.gis.openlayers.Feature.prototype.setText = function (text) {
             font: '14px sans-serif',
             offsetY: -20,
             fill: new ol.style.Fill({
-                color: '#760de0'
+                color: '#000'
             }),
             stroke: new ol.style.Stroke({
                 color: "#000",
@@ -3278,6 +3278,36 @@ lxs.gis.openlayers.Feature.prototype.setText = function (text) {
 
     this.__olFeature.setStyle(olStyle);
 }
+// Set text to the feature
+lxs.gis.openlayers.Feature.prototype.setText2 = function (text) {
+    var olStyle = new ol.style.Style({
+
+        image: new ol.style.Circle({
+            radius: 8,
+            stroke: new ol.style.Stroke({
+                color: "#FF00de0"
+            }),
+            fill: new ol.style.Fill({
+                color: "#ff0000"
+            })
+        }),
+        text: new ol.style.Text({
+            text: text,
+            font: '14px sans-serif',
+            offsetY: -20,
+            fill: new ol.style.Fill({
+                color: '#00F'
+            }),
+            stroke: new ol.style.Stroke({
+                color: "#00F",
+                width: 1
+            })
+        })
+    });
+
+    this.__olFeature.setStyle(olStyle);
+}
+
 ;
 // Definition of namespace for geometries
 lxs.gis.geometry = function () {
