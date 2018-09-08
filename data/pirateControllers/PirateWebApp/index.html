@@ -14,7 +14,7 @@
 
     <script type="text/javascript" src="js/blacklistShips.js"></script>
     <script type="text/javascript" src="js/logic.js"></script>
-    <script type="text/javascript" src="js/response.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -24,24 +24,6 @@
 
         });
 
-        xhr = new XMLHttpRequest();
-        
-        function testRequest(){
-        $.ajax({
-          url: 'service.svc/Request',
-          type: 'GET',
-          dataType: 'json',
-          success: function() { alert('hello!'); },
-          error: function() { alert('boo!'); },
-          beforeSend: setHeader
-        });
-
-        function setHeader(xhr) {
-            xhr.setRequestHeader('securityCode', 'Foo');
-            xhr.setRequestHeader('passkey', 'Bar');
-        }
-
-        }
 
     </script>
 </head>

@@ -73,32 +73,19 @@ function findships() {
 
 function doFindships() {
 
-    console.log("asdsdgddg");
-
     var coordinates = null;
     var ftr = null;
 
     serviceShape.removeFeatures();
 
-    responseShips = new Array(1);
 
     for (var i = 0; i < responseShips.length; i++)
     {
-        coordinates = ol.proj.transform([25, 47], 'EPSG:4326', 'EPSG:3857');
+        coordinates = ol.proj.transform([responseShips[i].longitude, responseShips[i].latitude], 'EPSG:4326', 'EPSG:3857');
         ftr = lxs.gis.openlayers.Feature.createPoint(coordinates);
         serviceShape.addFeature(ftr);
-
-        coordinates = ol.proj.transform([5, 47], 'EPSG:4326', 'EPSG:3857');
-        ftr = lxs.gis.openlayers.Feature.createPoint(coordinates)
-        serviceShape.addFeature(ftr);
-
-        coordinates = ol.proj.transform([-15, 47], 'EPSG:4326', 'EPSG:3857');
-        ftr = lxs.gis.openlayers.Feature.createPoint(coordinates)
-        serviceShape.addFeature(ftr);
     }
-
     
-
 
     // Center map into the feature
     var extent = serviceShape.getExtent();
